@@ -1,0 +1,10 @@
+GET http://localhost:9000/
+
+//apretar send request para conseguir la response
+
+//http/1.1 200 OK --> es el numero de status, tiene codigo de
+//error por si pasa algo. Todo rango de 200 es bien y algo mas
+//200 es que esta bien directamente 
+
+// Content-type --> que tio de texto tiene adentro (text/html)
+
