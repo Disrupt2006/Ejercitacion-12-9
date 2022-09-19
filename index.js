@@ -28,7 +28,7 @@ app.get('/menu/:id', function (req, res) {
   //guardar parametro
   const id = req.params.id;
 
-  res.json(menu.find(e => e = id));
+  res.json(menu.find(e => e.id == id));
 });
 
 //ej3
@@ -47,9 +47,12 @@ app.get('/bebidas', function (req, res) {
 });
 
 //ej6
+
 /*
 app.post('/pedido', function (req, res) {
-  res.json();
+  res.json(menu.map((e) =>{
+    
+  }));
 });
 */
 

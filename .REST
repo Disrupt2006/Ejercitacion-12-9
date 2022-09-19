@@ -2,7 +2,7 @@
 GET http://localhost:9000/menu
 
 ### Menu con id (ej2)
-GET http://localhost:9000/menu/1
+GET http://localhost:9000/menu/5
 
 ### Principales (ej3)
 GET http://localhost:9000/principales
