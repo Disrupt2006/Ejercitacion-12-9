@@ -28,33 +28,46 @@ app.get('/menu/:id', function (req, res) {
   //guardar parametro
   const id = req.params.id;
 
-  res.json(menu.find(e => e.id == id));
+  if (!req.params.id) return res.status(404).json ({error: 'falta el id del producto'});
+
+  const item = (menu.find(e => e.id === id));
+
+  if (!item) return res.status(404).json ({error: 'item not found'});
+  
+  res.json(item);
+
 });
 
 //ej3
 app.get('/principales', function (req, res) {
-  res.json(menu.filter((e) => e.tipo == "principal"));
+  res.json(menu.filter((e) => e.tipo === "principal"));
 });
 
 //ej4
 app.get('/postres', function (req, res) {
-  res.json(menu.filter((e) => e.tipo == "postre"));
+  res.json(menu.filter((e) => e.tipo === "postre"));
 });
 
 //ej5
 app.get('/bebidas', function (req, res) {
-  res.json(menu.filter((e) => e.tipo == "bebida"));
+  res.json(menu.filter((e) => e.tipo === "bebida"));
 });
 
 //ej6
-
-/*
 app.post('/pedido', function (req, res) {
-  res.json(menu.map((e) =>{
-    
-  }));
+  const precio = req.body.productos;
+  
+  if (!precio) return  res.status(404).json ({error: 'no se pidieron productos'});
+
+ precio.map( 
+ (item) => menu.find((i) => i.id === item.id).precio * item.cantidad
+ )
+ .reduce((a, b) => a + b);
+ 
+ //no se como returnear bien
+  res.json(item);
 });
-*/
+
 
 
 //escuche a puerto y cuando se prende que corra esto
